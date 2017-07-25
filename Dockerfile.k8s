@@ -1,0 +1,11 @@
+FROM alpine
+RUN apk --no-cache add python2 uwsgi uwsgi-python py2-flask curl
+
+COPY server.py server.py
+
+EXPOSE 80
+# Unneeded and problematic in k8s
+# HEALTHCHECK CMD ["curl", "-f", "http://localhost/healthz"]
+CMD ["uwsgi", "--http-socket", "0.0.0.0:80", "--plugin", "python", \
+     "--manage-script-name", "--python-autoreload", "1", \
+     "--enable-threads", "--threads", "10", "--mount", "/=server:app"]

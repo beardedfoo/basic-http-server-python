@@ -1,0 +1,7 @@
+version: '2'
+services:
+  http:
+    build: .
+    image: basic-http-server-python
+    ports:
+     - "8000:80"
