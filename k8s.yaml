@@ -15,7 +15,7 @@ items:
         spec:
           containers:
           - name: *app_name
-            image: *app_name
+            image: beardedfoo/basic-http-server-python
             imagePullPolicy: Always
             ports:
             - containerPort: 80
