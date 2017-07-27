@@ -15,5 +15,4 @@ COPY server.py server.py
 EXPOSE 80
 HEALTHCHECK CMD ["curl", "-f", "http://localhost/healthz"]
 CMD ["uwsgi", "--http-socket", "0.0.0.0:80", "--plugin", "python", \
-     "--manage-script-name", "--python-autoreload", "1", \
-     "--enable-threads", "--threads", "10", "--mount", "/=server:app"]
+     "--manage-script-name", "--mount", "/=server:app"]

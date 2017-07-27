@@ -7,7 +7,7 @@ items:
       name: &app_name
           basic-http-server-python
     spec:
-      replicas: 1
+      replicas: 5
       template:
         metadata:
           labels:

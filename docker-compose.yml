@@ -1,7 +1,13 @@
 version: '2'
 services:
+  lb:
+    image: dockercloud/haproxy:1.6.7
+    ports:
+     - 8000:80
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+    links:
+     - http
   http:
     build: .
     image: basic-http-server-python
-    ports:
-     - "8000:80"
